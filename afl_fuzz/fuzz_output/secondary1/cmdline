@@ -1,0 +1,2 @@
+./bazel-bin/fuzz_target
+@@
