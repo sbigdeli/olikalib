@@ -2,10 +2,8 @@
 export CC=afl-clang-fast++
 export CXX=afl-clang-fast++
 
-2. CXX=afl-clang-fast++ bazel build //:fuzz_target
+2. bazel build //:fuzz_target --extra_toolchains=//toolchain2:cc_toolchain_for_linux_x86_64_afl
 
-3. afl-fuzz -i /home/sbigdeli/Desktop/olikalib/input_corpus -o fuzz_output -- ./bazel-bin/fuzz_target
+3. afl-fuzz -i input_corpus -o fuzz_output -- ./bazel-bin/fuzz_target
 
 4. AdressSanitizer - "-fsanitize=address",  # Gör programmet mycket långsammare pga en overhead funktion
-
-5. Se skillnaden i speeden genom att göra följande:
